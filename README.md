@@ -14,3 +14,12 @@
 - Two ways to run code on a new thread
   - Implement **Runnable** interface, and pass to a new Thread object
   - Extend Thread class, and create an object of that class.
+- We need to call start() to actually start the new thread and ask the OS to execute it.
+
+## Thread Termination - Why and When?
+- Thread consume resources
+  - Memory and kernel resources
+  - CPU cycles and cache memory
+- If a thread finished its work, but the application is still running, we want to clean up the thread's resources
+- If a thread is misbehaving, we want to stop it
+- By default, the application will not stop as long as at least one thread is still running.
