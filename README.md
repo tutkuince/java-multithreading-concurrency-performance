@@ -23,3 +23,9 @@
 - If a thread finished its work, but the application is still running, we want to clean up the thread's resources
 - If a thread is misbehaving, we want to stop it
 - By default, the application will not stop as long as at least one thread is still running.
+- If the method does not respond to the interrupt signal by throwing the **InterruptedException**,  we need to check for that signal and handle it ourselves.
+
+### Daemon Threads
+- Background threads that do not prevent the application from exiting if the main thread terminates
+- To prevent a thread from blocking our app from exiting, we set the thread to be a **Daemon** thread.
+  - The only way to programmatically stop the application is to make the thread a daemon. 
