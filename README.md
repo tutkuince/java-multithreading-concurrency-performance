@@ -53,3 +53,9 @@
     - The assumption is nothing else is running that consumes a lot of CPU
 - Does breaking original task and aggregating results come for free?
 - Can we break any task into subtasks?
+
+### Throughput
+- By serving each task on a different thread, in parallel, we can improve throughput by N
+- N = #threads = #cores
+- Using a Fixed Thread Pool, we maintain constant number of threads, and eliminate the need to recreate the threads
+- Significant performance improvement (xN)
