@@ -29,3 +29,27 @@
 - Background threads that do not prevent the application from exiting if the main thread terminates
 - To prevent a thread from blocking our app from exiting, we set the thread to be a **Daemon** thread.
   - The only way to programmatically stop the application is to make the thread a daemon. 
+
+## Thread Coordination - Why do we need it?
+- Different threads run independently
+- Order of execution is out of our control
+
+### Thread Coordination - Thread.join(..)
+- More control over independent threads
+- Safely collect and aggregate results
+- Gracefully handle runaway threads using **Thread.join(timeout)**
+
+## Performance Optimization
+- Performance in Multithreading
+  - **Latency** - The time to completion of a task. Measured in time units
+  - **Throughput** - The amount of tasks completed in a given period. Measured in tasks/time unit
+
+### Latency
+- Theoretical reduction of latency by N = Performance improvement by a factor of N
+- N = ?
+  - How many subtasks/threads to break the original task?
+    - On a general purpose computer: N = number of cores
+    - #threads = #cores is optiomal only if all threads are runnable and can run without interruption (no IO / blocking calls / sleep etc.)
+    - The assumption is nothing else is running that consumes a lot of CPU
+- Does breaking original task and aggregating results come for free?
+- Can we break any task into subtasks?
