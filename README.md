@@ -11,9 +11,10 @@
 
 ## Thread Creation
 - Thread class - Encapsulates all thread related functionality
-- Two ways to run code on a new thread
+- Three ways to run code on a new thread
   - Implement **Runnable** interface, and pass to a new Thread object
   - Extend Thread class, and create an object of that class.
+  - Implement **Callable** (requires ExecutorService)
 - We need to call start() to actually start the new thread and ask the OS to execute it.
 
 ## Thread Termination - Why and When?
