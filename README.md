@@ -31,6 +31,11 @@
   - care needed as the number of threads can become very large
 - Fixed thread pool executor
   - creates a fixed number of threads which is specified at the start.
+ 
+## Future<V> Interface
+- A Future<V> is used to obtain the result from a Callable's call() method.
+- A Future<V> object represents the result of an asynchronous computation. Methods are provided to check if the computation is complete (isDone()) and to retrieve the result of that computation (get()).
+- The result can only be retrieved using the method V get() when the computation has completed, blocking if necessary until it is ready.
 
 ## Thread Termination - Why and When?
 - Thread consume resources
