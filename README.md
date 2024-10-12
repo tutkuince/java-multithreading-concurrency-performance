@@ -17,6 +17,26 @@
   - Implement **Callable** (requires ExecutorService)
 - We need to call start() to actually start the new thread and ask the OS to execute it.
 
+## ExecutorService Interface
+- The Concurrency API abstracts thread management for us i.e. it enables complex processing involving threads without us having to manage threads directly.
+- The **ExecutorService** is an interface that provides services for the creation and management of threads.
+- The **Executors** utility class provides static methods that return **ExecutorService** implementation.
+- A "thread pool" is a set of reusable worker threads available to execute tasks.
+
+### Types of ExecutorService
+- Single thread pool executor
+  - a single thread is used; tasks are processed sequentially
+- Cached thread pool executor
+  - creates new threads as needed and reuses threads that have become free
+  - care needed as the number of threads can become very large
+- Fixed thread pool executor
+  - creates a fixed number of threads which is specified at the start.
+ 
+## Future<V> Interface
+- A Future<V> is used to obtain the result from a Callable's call() method.
+- A Future<V> object represents the result of an asynchronous computation. Methods are provided to check if the computation is complete (isDone()) and to retrieve the result of that computation (get()).
+- The result can only be retrieved using the method V get() when the computation has completed, blocking if necessary until it is ready.
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
