@@ -23,6 +23,15 @@
 - The **Executors** utility class provides static methods that return **ExecutorService** implementation.
 - A "thread pool" is a set of reusable worker threads available to execute tasks.
 
+### Types of ExecutorService
+- Single thread pool executor
+  - a single thread is used; tasks are processed sequentially
+- Cached thread pool executor
+  - creates new threads as needed and reuses threads that have become free
+  - care needed as the number of threads can become very large
+- Fixed thread pool executor
+  - creates a fixed number of threads which is specified at the start.
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
