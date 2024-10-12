@@ -17,6 +17,12 @@
   - Implement **Callable** (requires ExecutorService)
 - We need to call start() to actually start the new thread and ask the OS to execute it.
 
+## ExecutorService Interface
+- The Concurrency API abstracts thread management for us i.e. it enables complex processing involving threads without us having to manage threads directly.
+- The **ExecutorService** is an interface that provides services for the creation and management of threads.
+- The **Executors** utility class provides static methods that return **ExecutorService** implementation.
+- A "thread pool" is a set of reusable worker threads available to execute tasks.
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
