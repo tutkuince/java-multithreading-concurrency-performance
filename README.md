@@ -43,6 +43,11 @@
 - To create scheduled executors, use **Executers** utility class
   - ScheduledExecutorService newSingleThreadScheduledExecutor()
   - ScheduledExecutorService newScheduledThreadPool()
+The **ScheduledExecutorService** interface provides 4 methods to schedule tasks:
+- schedule(Runnable task, long delay, TimeUnit unit)
+- schedule(Callable<V> task, long delay, TimeUnit unit)
+- scheduleAtFixedRate(Runnable task, lon initialDelay, lon periodToWait, TimeUnit unit)
+- scheduleWithFixedDelay(Runnable task, long initialDelay, long delayBetweenEndOfOneAndStartOfNext, TimeUnit unit)
 
 ## Thread Termination - Why and When?
 - Thread consume resources
