@@ -37,6 +37,13 @@
 - A Future<V> object represents the result of an asynchronous computation. Methods are provided to check if the computation is complete (isDone()) and to retrieve the result of that computation (get()).
 - The result can only be retrieved using the method V get() when the computation has completed, blocking if necessary until it is ready.
 
+## Scheduling Tasks
+- Executor exists that enable us to schedule tasks to be performed at some time in the future
+- In addition, tasks can be scheduled to occur repeatedly at a particular interval
+- To create scheduled executors, use **Executers** utility class
+  - ScheduledExecutorService newSingleThreadScheduledExecutor()
+  - ScheduledExecutorService newScheduledThreadPool()
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
