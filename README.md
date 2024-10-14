@@ -49,6 +49,42 @@ The **ScheduledExecutorService** interface provides 4 methods to schedule tasks:
 - scheduleAtFixedRate(Runnable task, lon initialDelay, lon periodToWait, TimeUnit unit)
 - scheduleWithFixedDelay(Runnable task, long initialDelay, long delayBetweenEndOfOneAndStartOfNext, TimeUnit unit)
 
+## Atomic Classes From the API
+- An "atomic" operation is indivisible.
+- We cannot guarantee that a thread will stay running throughout the atomic operation but we can guarantee that even if the thread moves in an out of the running state, no other thread can come in and act on the same data
+- AtomicInteger, AtomicLong, AtomicBoolean
+
+### Popular Atomic Methods
+- get(): returns the current value
+- set(newValue): sets the value to 'newValue'; equivalent to = operator
+- getAndSet(newValue): sets the value to 'newValue' and returns the old value
+- compareAndSet(expectedValue, newValue): sets the value to 'newValue' if the current value is == to 'expectedValue'
+
+#### Atomic Methods (Numeric Classes Only)
+- incrementAndGet(): pre-increment i.e. ++x
+- getAndIncrement(): post-increment i.e. x++
+- decrementAndGet(): pre-decrement i.e. --x
+- getAndDecrement(): post-decrement i.e. x--
+
+### Synchronized Keyword
+- Atomic classes do not give us the ability to guard/protect a block of code i.e. {}. In effect, we want to create a mutually exclusive piece of code i.e. only one thread at a time can execute the code block
+- In operation systems, these mutually exclusive code blocks are known as critical sections and structures known as monitors enables their implementation.
+- Every object in Java, has a built-in lock/monitor that automatically kicks in when used with synchronized code blocks
+
+- A thread wishing to enter a synchronized code block will automatically try to acquire the lock. If the lock is free it will get the lock.
+- Any other thread now arriving will have to wait until the first thread is finished in the critical section
+- When the first thread exists the critical section, the lock is released automatically. Now one of the waiting threads will be allowed to obtain the lock and enter the critical section.
+
+- Note that threads must be using the same object i.e. if the threads are using diffrent objects then they are using different locks and we will encounter data races.
+- We can use the synchronized keywords on methods as well as code blocks.
+
+## Lock Interface
+- Although similar to synchronized, a Lock is more flexible.
+- For example, with synchronized, a thread is blocked if a previous thread has the lock whereas with Lock, if we are unable to get the lock we are free to perform some other task.
+- We must explicitly lock on an object that implements Lock (as opposed to synchronising on any object).
+- Also, we must explicitly free the lock when finished (the finally is useful for this)
+
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
