@@ -66,6 +66,11 @@ The **ScheduledExecutorService** interface provides 4 methods to schedule tasks:
 - decrementAndGet(): pre-decrement i.e. --x
 - getAndDecrement(): post-decrement i.e. x--
 
+### Synchronized Keyword
+- Atomica classes do not give us the ability to guard/protect a block of code i.e. {}. In effect, we want to create a mutually exclusive piece of code i.e. only one thread at a time can execute the code block
+- In operation systems, these mutually exclusive code blocks are known as critical sections and structures known as monitors enables their implementation.
+- Every object in Java, has a built-in lock/monitor that automatically kicks in when used with synchronized code blocks
+
 
 ## Thread Termination - Why and When?
 - Thread consume resources
