@@ -84,6 +84,56 @@ The **ScheduledExecutorService** interface provides 4 methods to schedule tasks:
 - We must explicitly lock on an object that implements Lock (as opposed to synchronising on any object).
 - Also, we must explicitly free the lock when finished (the finally is useful for this)
 
+## Concurrent Collections 
+### SkipList Collections
+- ConcurrentSkipListSet and ConcurrentSkipListMap are sorted conccurrent collections.
+- Sorted by natural order
+- ConcurrentSkipListSet <=> TreeSet
+- ConcurrentSkipListMap <=> TreeMap
+
+### CopyOnWrite Collections
+- CopyOnWriteArrayList and CopyOnWriteArraySet
+- Suitable for situations where you read a lot but write very little.
+- When an object is added to or deleted from the collection, a copy is made of the entire collection.
+  - not talking about the object state that the references held in the collection refer to but we are talking about the references themselves.
+
+### Blocking Queues
+- While ConcurrentLinkedQueue and LinkedBlockingQueue are both thread-safe Queue implementations, LinkedBlockingQueue adds some extra methods for blocking i.e. waiting for a certain time period.
+
+#### LinkedBlockingQueue
+- E poll(long timeout, TimeUnit unit): Retrieves and removes the head of this queue, waiting up to the specified time if necessary ( queue may be empty )
+- offer(E e, long timeout, TimeUnit unit): Inserts the element into the queue, waiting up to the specified time if necessary (queue may be full)
+
+### Synchronized Collections
+- We can get a synchronized version of a non-concurrent collection using the **Collections** utility class.
+- Useful if you are given an existing non-concurrent collection and you want to share it among several threads
+- However, if you dont know when you are creating your collection that you require concurrency across threads, use the concurrenct collections outlined in the overview (better performance).
+- Note: synchronized collections also throw ConccurrentModificationExeption if you try to modify them inside a loop (unlike concurrent collections).
+
+## Threading Problems
+### Race Condition
+- A race condition occurs when two or more threads gain access to a shared resource at the same time.
+- This shared resource should be accessed sequentially
+- Creatin of a car registration number
+  - two cars with the same registration number
+  - both cars refused
+  - one with a registration number and one without
+
+### Deadlock
+- A deadlock occurs when locking threads are waiting on each other to free locks that they themselves hold.
+
+### Livelock
+- A livelock is similar to a deadlock in that the threads involved are stuck, making no progress. However, with deadlock, the threads are doing nothing.
+With livelock, threads are busy but their actions are repeatedly triggering the same conditions
+- A real-world example of livelock occurs when two people meet in a narrow corridor, and each tries to be polite by moving aside to let the other pass,
+but they end up swaying from side to side without making any progress because they both repeatedly move the same way at the same time.
+- Livelock is arisk with some algorithms that detect and recover from deadlock. If more than one process takes action, the deadlock detection algorithm can be repeatedly triggered.
+- Livelock can be difficult to detect as the threads are active ( they are stuck in an endless cylcle).
+
+### Starvation
+- Starvation occurs when a thread is unable to gain access to a required resource.
+- This can happen to low-priority threads if the resource in question is in high demand by higher-priority threads.
+- This can affect the liveness of you application as, even if it is a low-priority theead, it must get it's work done.
 
 ## Thread Termination - Why and When?
 - Thread consume resources
