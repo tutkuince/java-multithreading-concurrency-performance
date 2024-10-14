@@ -49,6 +49,24 @@ The **ScheduledExecutorService** interface provides 4 methods to schedule tasks:
 - scheduleAtFixedRate(Runnable task, lon initialDelay, lon periodToWait, TimeUnit unit)
 - scheduleWithFixedDelay(Runnable task, long initialDelay, long delayBetweenEndOfOneAndStartOfNext, TimeUnit unit)
 
+## Atomic Classes From the API
+- An "atomic" operation is indivisible.
+- We cannot guarantee that a thread will stay running throughout the atomic operation but we can guarantee that even if the thread moves in an out of the running state, no other thread can come in and act on the same data
+- AtomicInteger, AtomicLong, AtomicBoolean
+
+### Popular Atomic Methods
+- get(): returns the current value
+- set(newValue): sets the value to 'newValue'; equivalent to = operator
+- getAndSet(newValue): sets the value to 'newValue' and returns the old value
+- compareAndSet(expectedValue, newValue): sets the value to 'newValue' if the current value is == to 'expectedValue'
+
+#### Atomic Methods (Numeric Classes Only)
+- incrementAndGet(): pre-increment i.e. ++x
+- getAndIncrement(): post-increment i.e. x++
+- decrementAndGet(): pre-decrement i.e. --x
+- getAndDecrement(): post-decrement i.e. x--
+
+
 ## Thread Termination - Why and When?
 - Thread consume resources
   - Memory and kernel resources
