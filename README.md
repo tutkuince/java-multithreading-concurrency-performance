@@ -8,6 +8,13 @@
   4) The process's metadata
 - The OS maintains a dynamic priority for each thread to prioritize interactive threads and to avoid starvation for any particular thread in the system.
   - The algorithm for scheduling thread is OS specific, and is fairly complex, but the general goal is exactly that.
+ 
+## What is Process
+- A process is an instance of a program loaded into memory.
+- A process is a unit of work in an Operating System
+- A process is just an object stored in memory that contains information about execution of a particular program.
+- A process always has a state when you create a process, its initial state will be new.
+- The Operating System has a dedicated component called scheduler, which is responsible for selecting processes from the state and placing them onto the CPU in order to be executed
 
 ## Thread Creation
 - Thread class - Encapsulates all thread related functionality
