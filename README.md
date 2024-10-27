@@ -16,6 +16,10 @@
 - A process always has a state when you create a process, its initial state will be new.
 - The Operating System has a dedicated component called scheduler, which is responsible for selecting processes from the state and placing them onto the CPU in order to be executed
 
+## Threads vs Processes
+- Both processes and threads are independent sequences of execution.
+- The typical difference is that threads (of the same process) run in a shared memory space, while processes run in separate memory spaces.
+
 ## Thread Creation
 - Thread class - Encapsulates all thread related functionality
 - Three ways to run code on a new thread
