@@ -70,7 +70,7 @@ public class ReadWriteAndSpinLocks {
         private void readData() throws InterruptedException {
             Thread.sleep(3000);
 
-            
+
             while (true) {
                 boolean acquired = readLock.tryLock();
                 if (acquired) {
